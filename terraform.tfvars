@@ -15,3 +15,24 @@ ami_id            = "ami-0b0ea68c435eb488d" # Update with your actual AMI
 
 # Data Transformation
 data_transformation_instance_count = 2
+
+# S3 Buckets Configuration
+bucket_count      = 3
+bucket_prefix     = "bypass-public"
+bucket_acl        = "public-read"
+enable_versioning = true
+enable_website    = false
+
+# Custom bucket names (optional - if empty, uses prefix)
+bucket_names = ["raw", "trusted", "client"]  
+
+# Tags
+tags = {
+  Environment = "production"
+  Project     = "bypass"
+  Team        = "devops"
+  Owner       = "terraform"
+}
+
+# AWS Configuration
+aws_region = "us-east-1"

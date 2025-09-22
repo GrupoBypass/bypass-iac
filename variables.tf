@@ -67,3 +67,71 @@ variable "allowed_ssh_cidr_blocks" {
   type        = list(string)
   default     = ["0.0.0.0/0"]
 }
+
+# S3 Module Variables
+variable "bucket_count" {
+  description = "Number of public buckets to create"
+  type        = number
+  default     = 1
+}
+
+variable "bucket_prefix" {
+  description = "Prefix for bucket names"
+  type        = string
+  default     = "public-bucket"
+}
+
+variable "bucket_names" {
+  description = "Custom bucket names"
+  type        = list(string)
+  default     = []
+}
+
+variable "use_custom_names" {
+  description = "Whether to use custom bucket names"
+  type        = bool
+  default     = false
+}
+
+variable "bucket_acl" {
+  description = "ACL for the buckets"
+  type        = string
+  default     = "public-read"
+}
+
+variable "enable_versioning" {
+  description = "Enable versioning for the buckets"
+  type        = bool
+  default     = false
+}
+
+variable "enable_website" {
+  description = "Enable static website hosting"
+  type        = bool
+  default     = false
+}
+
+variable "website_index_document" {
+  description = "Index document for website configuration"
+  type        = string
+  default     = "index.html"
+}
+
+variable "website_error_document" {
+  description = "Error document for website configuration"
+  type        = string
+  default     = "error.html"
+}
+
+variable "tags" {
+  description = "Additional tags for the buckets"
+  type        = map(string)
+  default     = {}
+}
+
+# AWS Provider Variables
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+  default     = "us-east-1"
+}
