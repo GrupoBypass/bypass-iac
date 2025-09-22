@@ -31,3 +31,19 @@ module "data_transformation" {
   ami_id        = var.ami_id
   instance_count = 2
 }
+
+module "storage" {
+  source = "./modules/storage"
+
+  # Pass all variables from terraform.tfvars
+  bucket_count          = var.bucket_count
+  bucket_prefix         = var.bucket_prefix
+  bucket_names          = var.bucket_names
+  use_custom_names      = var.use_custom_names
+  bucket_acl            = var.bucket_acl
+  enable_versioning     = var.enable_versioning
+  enable_website        = var.enable_website
+  website_index_document = var.website_index_document
+  website_error_document = var.website_error_document
+  tags                  = var.tags
+}
