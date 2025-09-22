@@ -11,7 +11,7 @@ environment = "prod"
 # EC2 Configuration
 ec2_instance_type = "t3.small"
 key_name          = "production-keypair"
-ami_id            = "ami-0b0ea68c435eb488d" # Update with your actual AMI
+ami_id            = "ami-0b0ea68c435eb488d" 
 
 # Data Transformation
 data_transformation_instance_count = 2
