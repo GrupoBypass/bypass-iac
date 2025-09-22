@@ -49,6 +49,12 @@ resource "aws_instance" "data_transformer" {
   subnet_id              = var.private_subnet_ids[count.index % length(var.private_subnet_ids)]
   vpc_security_group_ids = [local.security_group_id]
 
+  root_block_device {
+    volume_size = 8
+    volume_type = "gp3"
+    encrypted   = true
+  }
+
   # Private instances don't get public IPs
   associate_public_ip_address = false
 

@@ -1,6 +1,7 @@
-variable "private_subnet_ids" {
-  description = "List of private subnet IDs from VPC"
-  type        = list(string)
+variable "security_group_id" {
+  description = "Security group ID for private instances"
+  type        = string
+  default     = "" # Optional: can create own SG in module
 }
 
 variable "vpc_id" {
@@ -13,10 +14,15 @@ variable "vpc_cidr_block" {
   type        = string
 }
 
-variable "security_group_id" {
-  description = "Security group ID for private instances"
+variable "instance_count" {
+  description = "Number of private instances to create"
+  type        = number
+  default     = 2
+}
+
+variable "ami_id" {
+  description = "AMI ID for EC2 instances"
   type        = string
-  default     = "" # Optional: can create own SG in module
 }
 
 variable "instance_type" {
@@ -30,13 +36,8 @@ variable "key_name" {
   type        = string
 }
 
-variable "ami_id" {
-  description = "AMI ID for EC2 instances"
-  type        = string
+variable "private_subnet_ids" {
+  description = "List of private subnet IDs from VPC"
+  type        = list(string)
 }
 
-variable "instance_count" {
-  description = "Number of private instances to create"
-  type        = number
-  default     = 2
-}
